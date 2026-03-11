@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nicole Macchitella</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    /* ── HOME SPECIFIC ── */
+    .hero {
+      min-height: calc(100vh - 80px);
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      gap: 4rem;
+      padding: 5rem 5rem 4rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .hero-left { }
+
+    .hero-tag {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--grey-text);
+      margin-bottom: 1.6rem;
+    }
+
+    .hero-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 5.5vw, 4.8rem);
+      font-weight: 300;
+      line-height: 1.08;
+      color: var(--ivory);
+      margin-bottom: 0.2rem;
+    }
+
+    .hero-name em {
+      font-style: italic;
+      color: var(--ivory-faint);
+    }
+
+    .hero-rule {
+      width: 44px;
+      height: 1px;
+      background: var(--ivory-faint);
+      margin: 2.2rem 0;
+    }
+
+    .hero-bio {
+      font-size: 1.05rem;
+      color: var(--ivory-dim);
+      max-width: 480px;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-affil {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--grey-text);
+    }
+
+    .hero-affil a {
+      color: var(--ivory-faint);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(200,194,184,0.35);
+      transition: color 0.25s, border-color 0.25s;
+    }
+    .hero-affil a:hover { color: var(--ivory); border-color: var(--ivory); }
+
+    .hero-cta {
+      display: flex;
+      gap: 1.1rem;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+    }
+
+    /* right card */
+    .hero-card {
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      padding: 2.8rem;
+    }
+
+    .card-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.58rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--grey-text);
+      margin-bottom: 1.4rem;
+    }
+
+    .card-row {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .card-row:last-child { border-bottom: none; }
+
+    .card-dot {
+      width: 3px; height: 3px;
+      border-radius: 50%;
+      background: var(--ivory-faint);
+      margin-top: 0.65rem;
+      flex-shrink: 0;
+    }
+
+    .card-text { font-size: 0.92rem; color: var(--ivory-dim); line-height: 1.45; }
+    .card-text strong {
+      display: block;
+      font-weight: 500;
+      color: var(--ivory);
+      font-size: 0.86rem;
+      margin-bottom: 0.1rem;
+    }
+
+    @media (max-width: 800px) {
+      .hero { grid-template-columns: 1fr; padding: 3rem 1.5rem 2rem; gap: 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-name" href="index.html">Nicole Macchitella</a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="cv.html">CV</a></li>
+    </ul>
+  </nav>
+
+  <div class="page">
+    <div class="hero">
+      <div class="hero-left fade-up">
+        <p class="hero-tag">PhD Candidate &nbsp;·&nbsp; Economics</p>
+        <h1 class="hero-name">Nicole<br><em>Macchitella</em></h1>
+        <div class="hero-rule"></div>
+        <p class="hero-bio">
+          PhD student in Economics at Sapienza Università di Roma. My research focuses on [your research area — e.g. labour economics, income inequality, macroeconomics].
+        </p>
+        <p class="hero-affil">
+          <a href="https://www.uniroma1.it/" target="_blank">Sapienza Università di Roma</a>
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="research.html">Research</a>
+          <a class="btn btn-ghost" href="cv.html">Curriculum Vitae</a>
+        </div>
+      </div>
+
+      <div class="hero-card fade-up-2">
+        <p class="card-label">Quick info</p>
+        <div class="card-row">
+          <div class="card-dot"></div>
+          <div class="card-text"><strong>Position</strong>PhD Candidate in Economics</div>
+        </div>
+        <div class="card-row">
+          <div class="card-dot"></div>
+          <div class="card-text"><strong>Institution</strong>Sapienza Università di Roma</div>
+        </div>
+        <div class="card-row">
+          <div class="card-dot"></div>
+          <div class="card-text"><strong>Fields</strong>[Primary field] &nbsp;·&nbsp; [Secondary field]</div>
+        </div>
+        <div class="card-row">
+          <div class="card-dot"></div>
+          <div class="card-text"><strong>Email</strong>nicole.macchitella@uniroma1.it</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p class="footer-left">Nicole Macchitella &nbsp;·&nbsp; Sapienza Università di Roma</p>
+    <div class="footer-links">
+      <a class="footer-link" href="mailto:nicole.macchitella@uniroma1.it">Email</a>
+      <a class="footer-link" href="#" target="_blank">Google Scholar</a>
+      <a class="footer-link" href="#" target="_blank">LinkedIn</a>
+    </div>
+  </footer>
+
+</body>
+</html>
