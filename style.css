@@ -17,8 +17,8 @@ html { scroll-behavior: smooth; }
 body {
   background: var(--black);
   color: var(--ivory-dim);
-  font-family: 'EB Garamond', serif;
-  font-size: 19px;
+  font-family: 'Lora', serif;
+  font-size: 18px;
   line-height: 1.8;
   min-height: 100vh;
 }
@@ -54,7 +54,7 @@ nav {
 }
 
 .nav-links a {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-weight: 400;
   font-size: 0.7rem;
   letter-spacing: 0.2em;
@@ -101,7 +101,7 @@ nav {
 }
 
 .hero-tag {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 0.68rem;
   font-weight: 400;
   letter-spacing: 0.24em;
@@ -140,7 +140,7 @@ nav {
 }
 
 .hero-affiliation {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 0.7rem;
   letter-spacing: 0.14em;
   color: var(--light-grey);
@@ -163,7 +163,7 @@ nav {
 }
 
 .btn {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 0.68rem;
   font-weight: 400;
   letter-spacing: 0.18em;
@@ -208,7 +208,7 @@ nav {
 }
 
 .info-card-label {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 0.6rem;
   letter-spacing: 0.24em;
   text-transform: uppercase;
@@ -244,9 +244,124 @@ nav {
   color: var(--ivory);
   font-weight: 500;
   font-size: 0.88rem;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   letter-spacing: 0.05em;
   margin-bottom: 0.2rem;
+}
+
+/* ── SIMPLE LAYOUT (home + research) ── */
+.simple-hero {
+  max-width: 680px;
+  padding: 7rem 6rem 6rem;
+  animation: fadeUp 0.8s ease both;
+}
+
+.simple-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 300;
+  color: var(--ivory);
+  margin-bottom: 1.8rem;
+  letter-spacing: 0.01em;
+}
+
+.simple-bio {
+  font-size: 1.05rem;
+  color: var(--ivory-dim);
+  line-height: 1.85;
+  margin-bottom: 0.8rem;
+}
+
+.simple-bio a {
+  color: var(--ivory-dim);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(242,236,224,0.3);
+  transition: color 0.25s, border-color 0.25s;
+}
+.simple-bio a:hover { color: var(--ivory); border-color: var(--ivory); }
+
+.simple-contact {
+  margin-top: 2.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 1rem;
+  color: var(--ivory-dim);
+}
+
+.simple-contact a {
+  color: var(--ivory-dim);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(242,236,224,0.25);
+  transition: color 0.25s, border-color 0.25s;
+}
+.simple-contact a:hover { color: var(--ivory); border-color: var(--ivory); }
+
+/* ── RESEARCH ENTRIES ── */
+.research-section {
+  margin-top: 3rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid rgba(242,236,224,0.08);
+}
+
+.research-section-title {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--light-grey);
+  margin-bottom: 1.6rem;
+  font-weight: 400;
+}
+
+.research-entry {
+  margin-bottom: 2rem;
+}
+
+.research-entry-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  color: var(--ivory);
+  font-weight: 400;
+  line-height: 1.4;
+  margin-bottom: 0.4rem;
+}
+
+.research-entry-meta {
+  font-size: 0.9rem;
+  color: var(--ivory-faint);
+  margin-bottom: 0.7rem;
+  line-height: 1.6;
+}
+
+.research-entry-abstract {
+  font-size: 0.97rem;
+  color: var(--ivory-dim);
+  line-height: 1.8;
+  margin-bottom: 0.8rem;
+}
+
+.research-entry-links a {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--light-grey);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(153,153,153,0.35);
+  transition: color 0.25s, border-color 0.25s;
+  margin-right: 1.2rem;
+}
+.research-entry-links a:hover { color: var(--ivory); border-color: var(--ivory); }
+
+.research-placeholder {
+  font-size: 0.97rem;
+  color: var(--grey);
+  font-style: italic;
+}
+
+@media (max-width: 860px) {
+  .simple-hero { padding: 5rem 2rem 4rem; }
 }
 
 /* ── INNER PAGE HERO ── */
@@ -257,7 +372,7 @@ nav {
 }
 
 .page-tag {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 0.66rem;
   letter-spacing: 0.26em;
   text-transform: uppercase;
@@ -298,7 +413,7 @@ nav {
 .papers-group { margin-bottom: 3.5rem; }
 
 .papers-group-title {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 0.62rem;
   letter-spacing: 0.24em;
   text-transform: uppercase;
@@ -317,7 +432,7 @@ nav {
 }
 
 .paper-year {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 0.66rem;
   color: var(--grey);
   letter-spacing: 0.08em;
@@ -343,7 +458,7 @@ nav {
 .paper-links { display: flex; gap: 1.4rem; }
 
 .paper-link {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 0.62rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -358,7 +473,7 @@ nav {
 .cv-section { margin-bottom: 4rem; }
 
 .cv-section-title {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 0.62rem;
   letter-spacing: 0.24em;
   text-transform: uppercase;
@@ -377,7 +492,7 @@ nav {
 }
 
 .cv-year {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 0.68rem;
   color: var(--grey);
   letter-spacing: 0.08em;
@@ -422,7 +537,7 @@ footer {
 }
 
 .footer-link {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   font-size: 0.64rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;

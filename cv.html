@@ -4,8 +4,46 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CV · Nicole Macchitella</title>
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css"/>
+  <style>
+    .cv-simple {
+      display: flex;
+      flex-direction: column;
+      gap: 3.5rem;
+    }
+
+    .contact-block { }
+
+    .contact-title {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--light-grey);
+      margin-bottom: 1.6rem;
+      font-weight: 400;
+    }
+
+    .contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      font-size: 1rem;
+      color: var(--ivory-dim);
+      font-family: 'Lora', serif;
+    }
+
+    .contact-list a {
+      color: var(--ivory-dim);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(242,236,224,0.2);
+      transition: color 0.25s, border-color 0.25s;
+    }
+    .contact-list a:hover { color: var(--ivory); border-color: var(--ivory); }
+
+    .cv-download-block { }
+  </style>
 </head>
 <body>
 
@@ -19,132 +57,26 @@
   </nav>
 
   <div class="page">
+    <div class="simple-hero">
 
-    <div class="page-hero">
-      <p class="page-tag">Background</p>
-      <h1 class="page-title">Curriculum <em>Vitae</em></h1>
-    </div>
+      <h1 class="simple-name">Curriculum Vitae</h1>
 
-    <div class="content">
+      <div class="cv-simple">
 
-      <!-- Education -->
-      <div class="cv-section">
-        <p class="cv-section-title">Education</p>
+        <div class="cv-download-block">
+          <a class="btn btn-primary" href="MacchitellaNicole_cv.pdf" download>Download CV (PDF)</a>
+        </div>
 
-        <div class="cv-entry">
-          <span class="cv-year">Nov. 2024 — Ongoing</span>
-          <div>
-            <p class="cv-entry-title">PhD in Economics</p>
-            <p class="cv-entry-sub">Sapienza Università di Roma · Department of Economics and Law<br>Research interests: Competition economics and industrial organization</p>
+        <div class="contact-block">
+          <p class="contact-title">Contact</p>
+          <div class="contact-list">
+            <p>Email: <a href="mailto:nicole.macchitella@uniroma1.it">nicole.macchitella@uniroma1.it</a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/nicole-macchitella/" target="_blank">nicole-macchitella</a></p>
+            <p>Institution: <a href="https://www.uniroma1.it/" target="_blank">Sapienza Università di Roma</a></p>
           </div>
         </div>
 
-        <div class="cv-entry">
-          <span class="cv-year">Mar. 2023 — Feb. 2024</span>
-          <div>
-            <p class="cv-entry-title">Master II Level — Law and Economics of Antitrust, Regulation and Innovation</p>
-            <p class="cv-entry-sub">Università di Roma LUMSA · Final grade: 110/110<br>
-            Thesis: <em>Excessive Prices in the Pharmaceutical Sector: the Leadiant Case</em></p>
-          </div>
-        </div>
-
-        <div class="cv-entry">
-          <span class="cv-year">Sept. 2020 — Jul. 2022</span>
-          <div>
-            <p class="cv-entry-title">MSc in European Economy and Business Law</p>
-            <p class="cv-entry-sub">Università degli Studi di Roma "Tor Vergata" · Final grade: 110 cum laude/110<br>
-            Thesis: <em>EU Competition and US Antitrust Law: a comparative analysis</em></p>
-          </div>
-        </div>
-
-        <div class="cv-entry">
-          <span class="cv-year">Sept. 2021 — Feb. 2022</span>
-          <div>
-            <p class="cv-entry-title">Erasmus Exchange Programme</p>
-            <p class="cv-entry-sub">Univerzita Karlova · Prague, Czech Republic</p>
-          </div>
-        </div>
-
-        <div class="cv-entry">
-          <span class="cv-year">Sept. 2017 — Jul. 2020</span>
-          <div>
-            <p class="cv-entry-title">BSc in Business Administration and Economics</p>
-            <p class="cv-entry-sub">Università degli Studi di Roma "Tor Vergata" · Final grade: 108/110<br>
-            Thesis: <em>Gender Quotas and Corporate Law</em></p>
-          </div>
-        </div>
-
-        <div class="cv-entry">
-          <span class="cv-year">Sept. 2019 — Jan. 2020</span>
-          <div>
-            <p class="cv-entry-title">Erasmus Exchange Programme</p>
-            <p class="cv-entry-sub">Hochschule RheinMain · Wiesbaden, Germany</p>
-          </div>
-        </div>
       </div>
-
-      <!-- Publications -->
-      <div class="cv-section">
-        <p class="cv-section-title">Publications</p>
-
-        <div class="cv-entry">
-          <span class="cv-year">2025</span>
-          <div>
-            <p class="cv-entry-title">Money Illusion in Large Language Models: An Exploratory Replication Study</p>
-            <p class="cv-entry-sub">With M. Ciganovic and L. Panaccione · <em>Journal of Behavioral Economics for Policy</em>, Vol. 9(1), pp. 75–80</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Work Experience -->
-      <div class="cv-section">
-        <p class="cv-section-title">Work Experience</p>
-
-        <div class="cv-entry">
-          <span class="cv-year">Feb. 2024 — Feb. 2025</span>
-          <div>
-            <p class="cv-entry-title">Economic Intern</p>
-            <p class="cv-entry-sub">AGCM (Autorità Garante della Concorrenza e del Mercato) · Rome<br>
-            Manufacturing, agroalimentary, pharmaceutical and commercial distribution directorate (Competition 2). Support in investigations of anti-competitive behaviors and market analysis.</p>
-          </div>
-        </div>
-
-        <div class="cv-entry">
-          <span class="cv-year">Jun. 2022 — Dec. 2022</span>
-          <div>
-            <p class="cv-entry-title">Forensic Accounting & Fraud Investigation Intern</p>
-            <p class="cv-entry-sub">KPMG Italy · Rome<br>
-            Prevention and identification of economic and reputational risks arising from fraud and irregularities. Due diligence activities and support in civil and criminal proceedings.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Languages & Skills -->
-      <div class="cv-section">
-        <p class="cv-section-title">Languages & Skills</p>
-
-        <div class="cv-entry">
-          <span class="cv-year">Languages</span>
-          <div>
-            <p class="cv-entry-title">Italian, English, Spanish, French</p>
-            <p class="cv-entry-sub">Native · Fluent (C1, Cambridge Certificate) · Elementary (A2) · Elementary</p>
-          </div>
-        </div>
-
-        <div class="cv-entry">
-          <span class="cv-year">IT Skills</span>
-          <div>
-            <p class="cv-entry-title">Python, R, Microsoft Office</p>
-            <p class="cv-entry-sub">Word, Excel, PowerPoint, Teams</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Download -->
-      <div class="cv-download">
-        <a class="btn btn-ghost" href="#">Download Full CV (PDF)</a>
-      </div>
-
     </div>
   </div>
 
@@ -152,7 +84,6 @@
     <p class="footer-copy">Nicole Macchitella · Sapienza Università di Roma</p>
     <div class="footer-links">
       <a class="footer-link" href="mailto:nicole.macchitella@uniroma1.it">Email</a>
-      <a class="footer-link" href="#" target="_blank">Google Scholar</a>
       <a class="footer-link" href="https://www.linkedin.com/in/nicole-macchitella/" target="_blank">LinkedIn</a>
     </div>
   </footer>
