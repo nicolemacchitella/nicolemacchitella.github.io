@@ -1,646 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Nicole Macchitella</title>
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet"/>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --black: #0f0f0f;
-      --dark: #1a1a1a;
-      --mid: #2c2c2c;
-      --grey: #4a4a4a;
-      --light-grey: #888;
-      --ivory: #f5f0e8;
-      --ivory-dim: #e8e2d6;
-      --ivory-faint: #d4cfc6;
-      --white: #faf8f4;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--black);
-      color: var(--ivory);
-      font-family: 'EB Garamond', serif;
-      font-size: 18px;
-      line-height: 1.7;
-      min-height: 100vh;
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.4rem 4rem;
-      background: rgba(15,15,15,0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(245,240,232,0.08);
-    }
-
-    .nav-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 300;
-      font-size: 1.15rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--ivory);
-      text-decoration: none;
-      opacity: 0.9;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2.5rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 300;
-      font-size: 0.72rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--ivory-dim);
-      text-decoration: none;
-      transition: color 0.3s;
-      position: relative;
-    }
-
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -3px; left: 0;
-      width: 0; height: 1px;
-      background: var(--ivory);
-      transition: width 0.3s;
-    }
-
-    .nav-links a:hover { color: var(--ivory); }
-    .nav-links a:hover::after { width: 100%; }
-
-    /* ── HERO ── */
-    #home {
-      min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      padding-top: 80px;
-    }
-
-    .hero-left {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 6rem 4rem 6rem 6rem;
-      animation: fadeUp 1s ease both;
-    }
-
-    .hero-tag {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.68rem;
-      font-weight: 400;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--light-grey);
-      margin-bottom: 1.8rem;
-    }
-
-    .hero-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.8rem, 5vw, 4.2rem);
-      font-weight: 300;
-      line-height: 1.1;
-      color: var(--ivory);
-      margin-bottom: 0.3rem;
-    }
-
-    .hero-name em {
-      font-style: italic;
-      color: var(--ivory-faint);
-    }
-
-    .hero-divider {
-      width: 48px;
-      height: 1px;
-      background: var(--ivory-faint);
-      margin: 2rem 0;
-    }
-
-    .hero-bio {
-      font-size: 1.05rem;
-      color: var(--ivory-dim);
-      max-width: 440px;
-      margin-bottom: 2.4rem;
-      font-weight: 400;
-    }
-
-    .hero-affiliation {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.72rem;
-      letter-spacing: 0.12em;
-      color: var(--light-grey);
-      text-transform: uppercase;
-    }
-
-    .hero-affiliation a {
-      color: var(--ivory-faint);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(245,240,232,0.3);
-      transition: color 0.3s, border-color 0.3s;
-    }
-    .hero-affiliation a:hover { color: var(--ivory); border-color: var(--ivory); }
-
-    .hero-cta {
-      display: flex;
-      gap: 1.2rem;
-      margin-top: 3rem;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.68rem;
-      font-weight: 400;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      text-decoration: none;
-      padding: 0.85rem 2rem;
-      border: 1px solid;
-      transition: all 0.3s;
-      display: inline-block;
-    }
-
-    .btn-primary {
-      background: var(--ivory);
-      color: var(--black);
-      border-color: var(--ivory);
-    }
-    .btn-primary:hover {
-      background: transparent;
-      color: var(--ivory);
-    }
-
-    .btn-ghost {
-      background: transparent;
-      color: var(--ivory-dim);
-      border-color: rgba(245,240,232,0.3);
-    }
-    .btn-ghost:hover {
-      color: var(--ivory);
-      border-color: var(--ivory);
-    }
-
-    .hero-right {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 6rem 6rem 6rem 2rem;
-      animation: fadeUp 1s 0.2s ease both;
-      opacity: 0;
-    }
-
-    .hero-card {
-      border: 1px solid rgba(245,240,232,0.1);
-      padding: 3rem;
-      background: rgba(255,255,255,0.02);
-      max-width: 340px;
-      width: 100%;
-    }
-
-    .hero-card-label {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.6rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--light-grey);
-      margin-bottom: 1.2rem;
-    }
-
-    .hero-card-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      padding: 1rem 0;
-      border-bottom: 1px solid rgba(245,240,232,0.07);
-    }
-    .hero-card-item:last-child { border-bottom: none; }
-
-    .hero-card-dot {
-      width: 4px; height: 4px;
-      border-radius: 50%;
-      background: var(--ivory-faint);
-      margin-top: 0.6rem;
-      flex-shrink: 0;
-    }
-
-    .hero-card-text {
-      font-size: 0.95rem;
-      color: var(--ivory-dim);
-      line-height: 1.5;
-    }
-
-    .hero-card-text strong {
-      display: block;
-      color: var(--ivory);
-      font-weight: 500;
-      font-size: 0.9rem;
-      margin-bottom: 0.15rem;
-    }
-
-    /* ── SECTIONS ── */
-    section {
-      padding: 7rem 6rem;
-      border-top: 1px solid rgba(245,240,232,0.07);
-    }
-
-    .section-inner {
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .section-header {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      margin-bottom: 4rem;
-    }
-
-    .section-number {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 0.85rem;
-      color: var(--grey);
-      font-style: italic;
-    }
-
-    .section-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.8rem, 3vw, 2.6rem);
-      font-weight: 300;
-      color: var(--ivory);
-      letter-spacing: 0.02em;
-    }
-
-    .section-line {
-      flex: 1;
-      height: 1px;
-      background: rgba(245,240,232,0.12);
-    }
-
-    /* ── RESEARCH ── */
-    .research-intro {
-      font-size: 1.05rem;
-      color: var(--ivory-dim);
-      max-width: 600px;
-      margin-bottom: 3.5rem;
-      font-style: italic;
-    }
-
-    .paper {
-      padding: 2.2rem 0;
-      border-bottom: 1px solid rgba(245,240,232,0.08);
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 2rem;
-      transition: background 0.3s;
-    }
-    .paper:first-of-type { border-top: 1px solid rgba(245,240,232,0.08); }
-
-    .paper-year {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.68rem;
-      letter-spacing: 0.12em;
-      color: var(--grey);
-      padding-top: 0.3rem;
-      min-width: 48px;
-    }
-
-    .paper-content {}
-
-    .paper-status {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.6rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--light-grey);
-      margin-bottom: 0.5rem;
-    }
-
-    .paper-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.2rem;
-      font-weight: 400;
-      color: var(--ivory);
-      margin-bottom: 0.5rem;
-      line-height: 1.3;
-    }
-
-    .paper-desc {
-      font-size: 0.92rem;
-      color: var(--ivory-faint);
-      line-height: 1.6;
-    }
-
-    .paper-links {
-      display: flex;
-      gap: 1.2rem;
-      margin-top: 0.8rem;
-    }
-
-    .paper-link {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.62rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--light-grey);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(136,136,136,0.4);
-      transition: color 0.3s, border-color 0.3s;
-    }
-    .paper-link:hover { color: var(--ivory); border-color: var(--ivory); }
-
-    /* ── CV ── */
-    .cv-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-    }
-
-    .cv-col-title {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.65rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--light-grey);
-      margin-bottom: 2rem;
-    }
-
-    .cv-entry {
-      padding: 1.4rem 0;
-      border-bottom: 1px solid rgba(245,240,232,0.07);
-    }
-
-    .cv-entry-year {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.65rem;
-      color: var(--grey);
-      letter-spacing: 0.1em;
-      margin-bottom: 0.3rem;
-    }
-
-    .cv-entry-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.05rem;
-      color: var(--ivory);
-      font-weight: 400;
-    }
-
-    .cv-entry-sub {
-      font-size: 0.88rem;
-      color: var(--ivory-faint);
-      margin-top: 0.15rem;
-    }
-
-    .cv-download {
-      margin-top: 4rem;
-      text-align: center;
-    }
-
-    /* ── CONTACT FOOTER ── */
-    footer {
-      padding: 4rem 6rem;
-      border-top: 1px solid rgba(245,240,232,0.07);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .footer-left {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1rem;
-      color: var(--grey);
-      font-style: italic;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 2rem;
-    }
-
-    .footer-link {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.65rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--light-grey);
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    .footer-link:hover { color: var(--ivory); }
-
-    /* ── ANIMATIONS ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 900px) {
-      nav { padding: 1.2rem 2rem; }
-      .nav-name { font-size: 1rem; }
-      .nav-links { gap: 1.5rem; }
-
-      #home { grid-template-columns: 1fr; }
-      .hero-left { padding: 5rem 2rem 2rem; }
-      .hero-right { padding: 2rem; }
-      .hero-card { max-width: 100%; }
-
-      section { padding: 5rem 2rem; }
-      footer { padding: 3rem 2rem; flex-direction: column; gap: 1.5rem; text-align: center; }
-
-      .cv-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
-  <!-- NAV -->
   <nav>
-    <a class="nav-name" href="#home">Nicole Macchitella</a>
+    <a class="nav-name" href="index.html">Nicole Macchitella</a>
     <ul class="nav-links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#research">Research</a></li>
-      <li><a href="#cv">CV</a></li>
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="cv.html">CV</a></li>
     </ul>
   </nav>
 
-  <!-- HOME -->
-  <section id="home">
-    <div class="hero-left">
-      <p class="hero-tag">Economics · Sapienza University of Rome</p>
-      <h1 class="hero-name">Nicole<br><em>Macchitella</em></h1>
-      <div class="hero-divider"></div>
-      <p class="hero-bio">
-        PhD student in Economics at Sapienza Università di Roma. My research focuses on [your research area — e.g. labour economics, monetary policy, inequality].
-      </p>
-      <p class="hero-affiliation">
-        <a href="https://www.uniroma1.it/" target="_blank">Sapienza Università di Roma</a>
-      </p>
-      <div class="hero-cta">
-        <a class="btn btn-primary" href="#research">Research</a>
-        <a class="btn btn-ghost" href="#cv">Curriculum Vitae</a>
+  <div class="page">
+    <div class="hero">
+
+      <div class="hero-left">
+        <p class="hero-tag">PhD Student · Economics · Rome</p>
+        <h1 class="hero-name">Nicole<br><em>Macchitella</em></h1>
+        <div class="hero-divider"></div>
+        <p class="hero-bio">
+          I am a PhD student in Economics at Sapienza Università di Roma. My research focuses on [your research area — e.g. labour economics, inequality, monetary policy].
+        </p>
+        <p class="hero-affiliation">
+          <a href="https://www.uniroma1.it/" target="_blank">Sapienza Università di Roma</a>
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="research.html">Research</a>
+          <a class="btn btn-ghost" href="cv.html">Curriculum Vitae</a>
+        </div>
       </div>
+
+      <div class="hero-right">
+        <div class="info-card">
+          <p class="info-card-label">Quick info</p>
+
+          <div class="info-item">
+            <div class="info-dot"></div>
+            <div class="info-text">
+              <strong>Position</strong>
+              PhD Candidate in Economics
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-dot"></div>
+            <div class="info-text">
+              <strong>Institution</strong>
+              Sapienza Università di Roma
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-dot"></div>
+            <div class="info-text">
+              <strong>Fields</strong>
+              [Primary field] · [Secondary field]
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-dot"></div>
+            <div class="info-text">
+              <strong>Email</strong>
+              name.surname@uniroma1.it
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
+  </div>
 
-    <div class="hero-right">
-      <div class="hero-card">
-        <p class="hero-card-label">Quick info</p>
-
-        <div class="hero-card-item">
-          <div class="hero-card-dot"></div>
-          <div class="hero-card-text">
-            <strong>Position</strong>
-            PhD Candidate in Economics
-          </div>
-        </div>
-        <div class="hero-card-item">
-          <div class="hero-card-dot"></div>
-          <div class="hero-card-text">
-            <strong>Institution</strong>
-            Sapienza Università di Roma
-          </div>
-        </div>
-        <div class="hero-card-item">
-          <div class="hero-card-dot"></div>
-          <div class="hero-card-text">
-            <strong>Fields</strong>
-            [Primary field] · [Secondary field]
-          </div>
-        </div>
-        <div class="hero-card-item">
-          <div class="hero-card-dot"></div>
-          <div class="hero-card-text">
-            <strong>Email</strong>
-            name.surname@uniroma1.it
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- RESEARCH -->
-  <section id="research">
-    <div class="section-inner">
-      <div class="section-header">
-        <span class="section-number">01</span>
-        <h2 class="section-title">Research</h2>
-        <div class="section-line"></div>
-      </div>
-
-      <p class="research-intro">
-        My work sits at the intersection of [field A] and [field B], with a particular interest in [theme].
-      </p>
-
-      <!-- Working Papers -->
-      <div class="paper">
-        <span class="paper-year">2024</span>
-        <div class="paper-content">
-          <p class="paper-status">Working Paper</p>
-          <h3 class="paper-title">Title of Your First Paper</h3>
-          <p class="paper-desc">A short abstract or description of the paper goes here. Explain the question, methodology, and main finding in two or three sentences.</p>
-          <div class="paper-links">
-            <a class="paper-link" href="#">PDF</a>
-            <a class="paper-link" href="#">SSRN</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="paper">
-        <span class="paper-year">2024</span>
-        <div class="paper-content">
-          <p class="paper-status">Work in Progress</p>
-          <h3 class="paper-title">Title of Your Second Paper</h3>
-          <p class="paper-desc">A short abstract or description of the paper goes here. Explain the question, methodology, and main finding in two or three sentences.</p>
-        </div>
-      </div>
-
-      <div class="paper">
-        <span class="paper-year">2023</span>
-        <div class="paper-content">
-          <p class="paper-status">Work in Progress</p>
-          <h3 class="paper-title">Title of a Third Paper or Project</h3>
-          <p class="paper-desc">A short abstract or description of the paper goes here. Explain the question, methodology, and main finding in two or three sentences.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CV -->
-  <section id="cv">
-    <div class="section-inner">
-      <div class="section-header">
-        <span class="section-number">02</span>
-        <h2 class="section-title">Curriculum Vitae</h2>
-        <div class="section-line"></div>
-      </div>
-
-      <div class="cv-grid">
-        <div>
-          <p class="cv-col-title">Education</p>
-
-          <div class="cv-entry">
-            <p class="cv-entry-year">2022 — Present</p>
-            <p class="cv-entry-title">PhD in Economics</p>
-            <p class="cv-entry-sub">Sapienza Università di Roma</p>
-          </div>
-          <div class="cv-entry">
-            <p class="cv-entry-year">2020 — 2022</p>
-            <p class="cv-entry-title">MSc in Economics</p>
-            <p class="cv-entry-sub">[University Name]</p>
-          </div>
-          <div class="cv-entry">
-            <p class="cv-entry-year">2017 — 2020</p>
-            <p class="cv-entry-title">BSc in Economics</p>
-            <p class="cv-entry-sub">[University Name]</p>
-          </div>
-        </div>
-
-        <div>
-          <p class="cv-col-title">Experience & Visits</p>
-
-          <div class="cv-entry">
-            <p class="cv-entry-year">2024</p>
-            <p class="cv-entry-title">Research Visit</p>
-            <p class="cv-entry-sub">[Institution Name]</p>
-          </div>
-          <div class="cv-entry">
-            <p class="cv-entry-year">2023</p>
-            <p class="cv-entry-title">Teaching Assistant</p>
-            <p class="cv-entry-sub">[Course Name] · Sapienza</p>
-          </div>
-          <div class="cv-entry">
-            <p class="cv-entry-year">2023</p>
-            <p class="cv-entry-title">Conference Presentation</p>
-            <p class="cv-entry-sub">[Conference Name]</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="cv-download">
-        <a class="btn btn-ghost" href="#">Download Full CV (PDF)</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
   <footer>
-    <p class="footer-left">Nicole Macchitella &nbsp;·&nbsp; Sapienza Università di Roma</p>
+    <p class="footer-copy">Nicole Macchitella · Sapienza Università di Roma</p>
     <div class="footer-links">
       <a class="footer-link" href="mailto:name.surname@uniroma1.it">Email</a>
       <a class="footer-link" href="#" target="_blank">Google Scholar</a>
