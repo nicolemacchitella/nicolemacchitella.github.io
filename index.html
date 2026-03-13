@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nicole Macchitella</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:      #111111;
+      --border:  rgba(255,255,255,0.09);
+      --border2: rgba(255,255,255,0.18);
+      --white:   #ffffff;
+      --dim:     #cccccc;
+      --muted:   #888888;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      line-height: 1.85;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(17,17,17,0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      width: 50vw;
+      margin: 0 auto;
+      padding: 1.4rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-name {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 300;
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--dim);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-name:hover { color: var(--white); }
+
+    .nav-links { display: flex; gap: 2.6rem; list-style: none; }
+
+    .nav-links a {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 300;
+      font-size: 0.7rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0; height: 1px;
+      background: var(--dim);
+      transition: width 0.25s;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a:hover::after { width: 100%; }
+
+    /* ── MAIN COLUMN ── */
+    main {
+      width: 50vw;
+      margin: 0 auto;
+      padding: 0;
+    }
+
+    /* ── SECTIONS ── */
+    section {
+      padding: 80px 0;
+      border-bottom: 1px solid var(--border);
+      scroll-margin-top: 64px;
+    }
+    section:last-of-type { border-bottom: none; }
+    section:not(#home) {
+      padding-top: 80px;
+    }
+
+    /* ── HOME — vertically centered in the visible area below the nav ── */
+    #home {
+      height: calc(100dvh - 65px);
+      margin-top: 65px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-sizing: border-box;
+    }
+
+    .hero-label {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 300;
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.8rem;
+      animation: up 0.8s ease both;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 4vw, 3rem);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 1.4rem;
+      animation: up 0.8s 0.07s ease both;
+      opacity: 0;
+    }
+
+    .hero-bio {
+      font-size: 1.15rem;
+      color: var(--dim);
+      line-height: 1.85;
+      max-width: 560px;
+      margin-bottom: 2.4rem;
+      animation: up 0.8s 0.14s ease both;
+      opacity: 0;
+    }
+    .hero-bio strong { color: var(--white); font-weight: 500; }
+    .hero-bio a {
+      color: var(--dim);
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      text-decoration-color: rgba(255,255,255,0.2);
+      transition: color 0.2s;
+    }
+    .hero-bio a:hover { color: var(--white); }
+
+    .hero-socials {
+      display: flex;
+      gap: 0.7rem;
+      animation: up 0.8s 0.2s ease both;
+      opacity: 0;
+    }
+
+    .social-btn {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 300;
+      font-size: 0.66rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--dim);
+      border: 1px solid var(--border2);
+      border-radius: 999px;
+      padding: 0.5rem 1.3rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .social-btn:hover { color: var(--white); border-color: rgba(255,255,255,0.4); }
+
+    .social-btn svg {
+      width: 12px; height: 12px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.6;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* ── SECTION HEADING ── */
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem;
+      font-weight: 300;
+      color: var(--white);
+      margin-bottom: 3rem;
+    }
+
+    /* ── GROUP LABEL — shared by research subsections AND cv/contact blocks ── */
+    .group-label {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 400;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--dim);
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .coming-soon {
+      font-size: 0.95rem;
+      color: var(--muted);
+      font-style: italic;
+      padding: 1.4rem 0;
+    }
+
+    /* ── RESEARCH ── */
+    .group { margin-bottom: 3.5rem; }
+    .group:last-child { margin-bottom: 0; }
+
+    /* paper — only a top border on the group label, no per-paper borders */
+    .paper {
+      padding: 1.6rem 0 0.2rem;
+      display: grid;
+      grid-template-columns: 52px 1fr;
+      gap: 1.6rem;
+    }
+
+    /* subtle separator only between papers, not after the last one */
+    .paper + .paper {
+      border-top: 1px solid var(--border);
+    }
+
+    .paper-year {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 300;
+      font-size: 0.82rem;
+      color: var(--dim);
+      align-self: start;
+      padding-top: 0.2rem;
+    }
+
+    .paper-title {
+      font-size: 1.08rem;
+      font-weight: 500;
+      color: var(--white);
+      line-height: 1.4;
+      margin-bottom: 0.15rem;
+    }
+
+    .paper-journal {
+      font-size: 0.95rem;
+      color: var(--muted);
+      font-style: italic;
+      line-height: 1.6;
+    }
+
+    .paper-authors {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .paper-authors a { color: var(--muted); text-decoration: underline; text-underline-offset: 3px; transition: color 0.2s; }
+    .paper-authors a:hover { color: var(--dim); }
+
+    .paper-abstract {
+      font-size: 1rem;
+      color: var(--dim);
+      line-height: 1.8;
+      margin-top: 0.5rem;
+      margin-bottom: 0.6rem;
+      text-align: justify;
+    }
+
+    .paper-links { display: flex; gap: 1.4rem; margin-top: 0.3rem; }
+
+    .paper-link {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 300;
+      font-size: 0.62rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+      padding-bottom: 1px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .paper-link:hover { color: var(--white); border-color: rgba(255,255,255,0.4); }
+
+    /* ── CV & CONTACTS ── */
+    .cv-contact {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    /* reuses .group-label — same size as Publications etc. */
+    .cv-meta {
+      font-size: 0.95rem;
+      color: var(--muted);
+      font-style: italic;
+      margin-top: 1.2rem;
+      margin-bottom: 1.4rem;
+      line-height: 1.7;
+    }
+
+    .pill-btn {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 300;
+      font-size: 0.66rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--dim);
+      border: 1px solid var(--border2);
+      border-radius: 999px;
+      padding: 0.55rem 1.5rem;
+      display: inline-block;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .pill-btn:hover { color: var(--white); border-color: rgba(255,255,255,0.4); }
+
+    .contact-note {
+      font-size: 1rem;
+      color: var(--dim);
+      line-height: 1.8;
+      margin-top: 1.2rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .contact-email {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      color: var(--dim);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border2);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .contact-email:hover { color: var(--white); border-color: rgba(255,255,255,0.4); }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 0;
+    }
+
+    .footer-inner {
+      width: 50vw;
+      margin: 0 auto;
+      padding: 2.2rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-copy {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 300;
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+    }
+
+    .footer-links { display: flex; gap: 1.8rem; align-items: center; }
+
+    .footer-link {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 300;
+      font-size: 0.62rem;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-link:hover { color: var(--white); }
+
+    /* ── ANIMATION ── */
+    @keyframes up {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      main { width: 90vw; }
+      .nav-inner { width: 90vw; padding: 1.1rem 0; }
+      .footer-inner { width: 90vw; padding: 2rem 0; flex-direction: column; align-items: flex-start; }
+      .nav-links { gap: 1.4rem; }
+      #home { min-height: auto; padding-top: 120px; padding-bottom: 60px; height: auto; }
+      .cv-contact { grid-template-columns: 1fr; gap: 3rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-name" href="#home">Nicole Macchitella</a>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#cv">CV &amp; Contacts</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- HOME -->
+    <section id="home">
+      <p class="hero-label">PhD Researcher · Economics</p>
+      <h1>Nicole Macchitella</h1>
+      <p class="hero-bio">
+        I am a PhD student in <em>Economics</em> at <em>Sapienza Università di Roma</em>. My research focuses on industrial organization and innovation economics, with a particular interest in how firms develop and adopt new technologies and what this means for market structure, competition, and economic performance. I combine empirical methods with a keen interest in the role of artificial intelligence in economic decision-making.
+      </p>
+      <div class="hero-socials">
+        <a class="social-btn" href="#" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+        <a class="social-btn" href="#" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          GitHub
+        </a>
+      </div>
+    </section>
+
+    <!-- RESEARCH -->
+    <section id="research">
+      <h2>Research</h2>
+
+      <div class="group">
+        <p class="group-label">Working Papers</p>
+        <p class="coming-soon">Coming soon.</p>
+      </div>
+
+      <div class="group">
+        <p class="group-label">Work in Progress</p>
+        <div class="paper">
+          <span class="paper-year">2026</span>
+          <div>
+            <p class="paper-title">TBD</p>
+            <p class="paper-authors">with Dario Guarascio</a></p>
+            <p class="paper-abstract">Abstract &amp; draft coming soon.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="group">
+        <p class="group-label">Publications</p>
+        <div class="paper">
+          <span class="paper-year">2025</span>
+          <div>
+            <p class="paper-title">Money Illusion in Large Language Models: An Exploratory Replication Study</p>
+            <p class="paper-authors">with Milos Ciganovic &amp; Luca Panaccione</a></p>
+            <p class="paper-journal">Journal of Behavioral Economics for Policy, Vol. 9, Issue 1</p>
+            <p class="paper-abstract">We explore whether major Large Language Models show money illusion, replicating scenarios from Shafir, Diamond, and Tversky (1997). Testing six models across twelve economic scenarios, we find that LLMs generally reason in real terms rather than nominal ones, though their answers sometimes align with human biases in more subjective situations.</p>
+            <div class="paper-links">
+              <a class="paper-link" href="https://sabeconomics.org/journal/RePEc/beh/JBEPv1/articles/JBEP-9-1-6.pdf">PDF</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- CV & CONTACTS -->
+    <section id="cv">
+      <h2>CV &amp; Contacts</h2>
+      <div class="cv-contact">
+
+        <div>
+          <p class="group-label">Curriculum Vitae</p>
+          <p class="cv-meta">Updated March 2026 · PDF</p>
+          <a class="pill-btn" href="nmacchitella_cv.pdf">Download CV</a>
+        </div>
+
+        <div>
+          <p class="group-label">Contact</p>
+          <p class="contact-note">Feel free to reach out for questions, collaborations, or anything else.</p>
+          <a class="contact-email" href="mailto:nicole.macchitella@uniroma1.it">nicole.macchitella@uniroma1.it</a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <p class="footer-copy">© 2026 Nicole Macchitella</p>
+      <div class="footer-links">
+        <a class="footer-link" href="#" target="_blank">LinkedIn</a>
+        <a class="footer-link" href="#" target="_blank">GitHub</a>
+        <a class="footer-link" href="mailto:nicole.macchitella@uniroma1.it">Email</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
